@@ -1,0 +1,95 @@
+Java Variables
+A variable is a container which holds the value while the Java program
+is executed. A variable is assigned with a data type.
+
+Variable is a name of memory location. There are three types of variables in java: local, instance and static.
+
+There are two types of data types in Java
+: primitive and non-primitive.
+
+Variable
+A variable is the name of a reserved area allocated in memory. In other words, it is a name of the memory location. It is a combination of "vary + able" which means its value can be changed.
+int data=50;//Here data is variable  
+Types of Variables
+There are three types of variables in Java
++local variable
++instance variable
++static variable
+
+1) Local Variable
+A variable declared inside the body of the method is called local variable. You can use this variable only within that method and the other methods in the class aren't even aware that the variable exists.
+
+A local variable cannot be defined with "static" keyword.
+
+2) Instance Variable
+A variable declared inside the class but outside the body of the method, is called an instance variable. It is not declared as static
+.
+
+It is called an instance variable because its value is instance-specific and is not shared among instances.
+
+3) Static variable
+A variable that is declared as static is called a static variable. It cannot be local. You can create a single copy of the static variable and share it among all the instances of the class. Memory allocation for static variables happens only once when the class is loaded in the memory.
+
+Example to understand the types of variables in java
+public class A  
+{  
+    static int m=100;//static variable  
+    void method()  
+    {    
+        int n=90;//local variable    
+    }  
+    public static void main(String args[])  
+    {  
+        int data=50;//instance variable    
+    }  
+}//End of class
+
+Polymorphism in Java
+Polymorphism in Java is a concept by which we can perform a single action in different ways. Polymorphism is derived from 2 Greek words: poly and morphs. The word "poly" means many and "morphs" means forms. So polymorphism means many forms.
+
+There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. We can perform polymorphism in java by method overloading and method overriding.
+Runtime Polymorphism in Java
+Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved at runtime rather than compile-time.
+
+In this process, an overridden method is called through the reference variable of a superclass. The determination of the method to be called is based on the object being referred to by the reference variable.
+
+Let's first understand the upcasting before Runtime Polymorphism.
+
+Upcasting
+If the reference variable of Parent class refers to the object of Child class, it is known as upcasting. For example:
+
+Upcasting in Java
+class A{}  
+class B extends A{}  
+A a=new B();//upcasting  
+For upcasting, we can use the reference variable of class type or an interface type. For Example:
+
+interface I{}  
+class A{}  
+class B extends A implements I{}  
+Here, the relationship of B class would be:
+
+B IS-A A
+B IS-A I
+B IS-A Object
+Since Object is the root class of all classes in Java, so we can write B IS-A Object.
+
+Example of Java Runtime Polymorphism
+In this example, we are creating two classes Bike and Splendor. Splendor class extends Bike class and overrides its run() method. We are calling the run method by the reference variable of Parent class. Since it refers to the subclass object and subclass method overrides the Parent class method, the subclass method is invoked at runtime.
+
+Since method invocation is determined by the JVM not compiler, it is known as runtime polymorphism.
+
+class Bike{  
+  void run(){System.out.println("running");}  
+}  
+class Splendor extends Bike{  
+  void run(){System.out.println("running safely with 60km");}  
+  
+  public static void main(String args[]){  
+    Bike b = new Splendor();//upcasting  
+    b.run();  
+  }  
+}  
+Output:
+running safely with 60km.
+
